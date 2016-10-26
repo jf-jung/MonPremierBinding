@@ -23,6 +23,8 @@ namespace MonPremierBinding
         public MainWindow()
         {
             InitializeComponent();
+            // le DataContext est défini comme étant la fenêtre elle-même, nous pourront alors bind nos contrôleurs sur ses différentes propriétés
+            DataContext = this;
         }
     }
 }

@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonPremierBinding"
         mc:Ignorable="d"
-        Title="MonPremierBinding" Height="350" Width="525" ResizeMode="NoResize">
-    <Window.Background>
-        <ImageBrush ImageSource="Resources/licorne.png"></ImageBrush>
-    </Window.Background>
-    <StackPanel FocusManager.FocusedElement="{Binding ElementName=textBox}">
-        <TextBox x:Name="textBox"/>
+        Title="MonSecondBinding" Height="350" Width="525">
+    <StackPanel Margin="15">
         <WrapPanel>
-            <TextBlock Text="Saisie : "></TextBlock>
-            <TextBlock Text="{Binding Path=Text, ElementName=textBox}"></TextBlock>
+            <TextBlock Text="Titre de la fenêtre :  " />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="150" />
+        </WrapPanel>
+        <WrapPanel Margin="0,10,0,0">
+            <TextBlock Text="Taille de la fenêtre : " />
+            <TextBox Text="{Binding Width}" Width="50" />
+            <TextBlock Text=" x " />
+            <TextBox Text="{Binding Height}" Width="50" />
         </WrapPanel>
     </StackPanel>
 </Window>
