@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonPremierBinding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="Resources/licorne.png"></ImageBrush>
     </Window.Background>
-    <StackPanel>
+    <StackPanel FocusManager.FocusedElement="{Binding ElementName=textBox}">
         <TextBox x:Name="textBox"/>
         <WrapPanel>
             <TextBlock Text="Saisie : "></TextBlock>
