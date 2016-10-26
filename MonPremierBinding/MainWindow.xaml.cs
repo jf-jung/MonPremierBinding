@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace MonPremierBinding
 {
@@ -20,19 +22,22 @@ namespace MonPremierBinding
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Activity> activities = new List<Activity>();
+
         public MainWindow()
         {
             InitializeComponent();
-            // le DataContext est défini comme étant la fenêtre elle-même, nous pourront alors bind nos contrôleurs sur ses différentes propriétés
-            DataContext = this;
-        }
 
-        private void btnUpdateSource_Click(object sender, RoutedEventArgs e)
-        {
-            // On recupère le Binding défini dans le xaml
-            BindingExpression bindingExpression = txtWindowTitle.GetBindingExpression(TextBox.TextProperty);
-            // On met explicitement à jour la source par appel de UpdateSource()
-            bindingExpression.UpdateSource();
+            activities.Add(new Activity() { Name = "Activité joyeuse" });
+            activities.Add(new Activity() { Name = "Activité triste" });
+
+            // ON défini une source de données pour notre ListBox
+            lbActivities.ItemsSource = activities;
         }
+    }
+
+    public class Activity
+    {
+        public string Name { get; set; }
     }
 }
