@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:MonPremierBinding"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/licorne.png"></ImageBrush>
+    </Window.Background>
+    <StackPanel>
+        <TextBox x:Name="textBox"/>
+        <WrapPanel>
+            <TextBlock Text="Saisie : "></TextBlock>
+            <TextBlock Text="{Binding Path=Text, ElementName=textBox}"></TextBlock>
+        </WrapPanel>
+    </StackPanel>
 </Window>
