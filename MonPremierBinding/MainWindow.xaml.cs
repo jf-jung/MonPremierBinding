@@ -26,5 +26,13 @@ namespace MonPremierBinding
             // le DataContext est défini comme étant la fenêtre elle-même, nous pourront alors bind nos contrôleurs sur ses différentes propriétés
             DataContext = this;
         }
+
+        private void btnUpdateSource_Click(object sender, RoutedEventArgs e)
+        {
+            // On recupère le Binding défini dans le xaml
+            BindingExpression bindingExpression = txtWindowTitle.GetBindingExpression(TextBox.TextProperty);
+            // On met explicitement à jour la source par appel de UpdateSource()
+            bindingExpression.UpdateSource();
+        }
     }
 }
