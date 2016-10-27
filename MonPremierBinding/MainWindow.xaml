@@ -8,9 +8,9 @@
         Title="Ma Première Source de Données" Height="350" Width="525">
     <DockPanel Margin="10">
         <StackPanel DockPanel.Dock="Right" Margin="10,0,0,0">
-            <Button Name="btnAddActivity" Padding="5,0">Ajouter une activité</Button>
-            <Button Name="btnChangeActivity" Padding="5,0">Modifier une activité</Button>
-            <Button Name="btnDeleteActivity" Padding="5,0">Supprimer une activité</Button>
+            <Button Name="btnAddActivity" Padding="5,0" Click="btnAddActivity_Click">Ajouter une activité</Button>
+            <Button Name="btnChangeActivity" Padding="5,0" Click="btnChangeActivity_Click">Modifier une activité</Button>
+            <Button Name="btnDeleteActivity" Padding="5,0" Click="btnDeleteActivity_Click">Supprimer une activité</Button>
         </StackPanel>
         <ListBox Name="lbActivities" DisplayMemberPath="Name"></ListBox>    
     </DockPanel>

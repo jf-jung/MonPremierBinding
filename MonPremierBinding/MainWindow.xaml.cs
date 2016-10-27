@@ -31,8 +31,34 @@ namespace MonPremierBinding
             activities.Add(new Activity() { Name = "Activité joyeuse" });
             activities.Add(new Activity() { Name = "Activité triste" });
 
-            // ON défini une source de données pour notre ListBox
+            // On défini une source de données pour notre ListBox
             lbActivities.ItemsSource = activities;
+        }
+
+        private void btnAddActivity_Click(object sender, RoutedEventArgs e)
+        {
+            // Ajout d'une nouvelle activité. 
+            // On utilise une forme raccourcie spécifique à C# pour 
+            // instancier la nouvelle Activity
+            // et définir son Name
+            // C'est ce qu'on appelle un "initialiseur d'objet"
+            activities.Add(new Activity { Name = "Nouvelle activité" });
+        }
+
+        private void btnChangeActivity_Click(object sender, RoutedEventArgs e)
+        {
+            // On omet les accolades, seule l'instruction suivante est prise en compte. Attention, danger !
+            // On peut se le permettre dans un cas comme celui-ci, car notre méthode ne comporte qu'une seule
+            // et unique instruction dans corps, 
+            if (lbActivities.SelectedItem != null)
+                (lbActivities.SelectedItem as Activity).Name = "Activité qui change";
+        }
+
+        private void btnDeleteActivity_Click(object sender, RoutedEventArgs e)
+        {
+            // Même remarque que précédemment
+            if (lbActivities.SelectedItem != null)
+                activities.Remove(lbActivities.SelectedItem as Activity);
         }
     }
 
