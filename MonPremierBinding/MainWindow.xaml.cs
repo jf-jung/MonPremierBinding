@@ -22,7 +22,7 @@ namespace MonPremierBinding
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Activity> activities = new List<Activity>();
+        private ObservableCollection<Activity> activities = new ObservableCollection<Activity>();
 
         public MainWindow()
         {
@@ -62,6 +62,7 @@ namespace MonPremierBinding
         }
     }
 
+    // Notez qu'il est possible, en C#, de définir plusieurs classe séparées au sein du même fichier.
     public class Activity
     {
         public string Name { get; set; }
