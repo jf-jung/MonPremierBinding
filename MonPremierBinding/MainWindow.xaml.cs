@@ -63,8 +63,31 @@ namespace MonPremierBinding
     }
 
     // Notez qu'il est possible, en C#, de définir plusieurs classe séparées au sein du même fichier.
-    public class Activity
+    public class Activity : INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    this.NotifyPropertyChanged("Name");
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
     }
 }
